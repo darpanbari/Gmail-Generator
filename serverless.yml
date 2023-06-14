@@ -1,0 +1,14 @@
+service: hevo-service
+provider:
+  name: aws
+  deploymentBucket: my-aws-bucket-56gdsd3
+  region: us-east-1
+  runtime: nodejs18.x
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - schedule:
+          rate: cron(*/1 * * * ? *)
+          enabled: true
